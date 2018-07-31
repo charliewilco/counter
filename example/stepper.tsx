@@ -1,7 +1,8 @@
+import * as React from 'react'
+import { render } from 'react-dom'
 import styled from 'styled-components'
-import Head from './components/head'
 import Nav from './components/nav'
-import Counter from './components/counter'
+import { StepperUI } from '../src'
 
 const Sheet = styled.div`
   background: white;
@@ -55,13 +56,13 @@ const Container = styled.div`
   margin: 16px auto;
 `
 
-export default () => (
+const App = () => (
   <div>
-    <Head title="Counter" />
     <Nav />
     <Container>
-      <Counter />
-      <Counter onChange={count => console.log(count)} />
+      <StepperUI>{({ count }) => <span>{count}</span>}</StepperUI>
     </Container>
   </div>
 )
+
+render(<App />, document.getElementById('root'))

@@ -13,7 +13,7 @@ export interface StepperUIState {
 
 export interface StepperUIProps {
   children: (val: Stepper) => React.ReactNode
-  onChange: (val: StepperUIState) => void
+  onChange?: (val: StepperUIState) => void
 }
 
 export class StepperUI extends React.Component<StepperUIProps, StepperUIState> {
@@ -35,7 +35,7 @@ export class StepperUI extends React.Component<StepperUIProps, StepperUIState> {
 
   reset = () => this.setState({ count: 0 })
 
-  componentDidUpdate(prevProps: StepperUIProps, { count: prevCount }: StepperUIState) {
+  componentDidUpdate(prevProps: StepperUIProps, prevState: StepperUIState) {
     const { count } = this.state
     const { onChange } = this.props
 
